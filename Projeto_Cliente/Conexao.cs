@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace Projeto_Cliente
         static private string server = "localhost";
         static private string database = "bd_teste";
         static private string usuario = "root";
-        static private string senha = "";
+        static private string senha = "Binho19022004";
 
-        static public string strConn = $"server={server}; User id={usuario}; database={database}; password{senha}";
+        static public string strConn = $"server={server}; User Id={usuario}; database={database}; password={senha}";
 
         MySqlConnection cn;
 
@@ -26,6 +27,7 @@ namespace Projeto_Cliente
                 cn = new MySqlConnection(strConn);
                 cn.Open();
                 result = true;
+
             }
             catch
             {
@@ -36,7 +38,7 @@ namespace Projeto_Cliente
 
         private void Desconectar()
         {
-            if (cn.State == System.Data.ConnectionState.Open)
+            if (cn.State == ConnectionState.Open)
             {
                 cn.Close();
             }
@@ -60,7 +62,32 @@ namespace Projeto_Cliente
             {
                 Desconectar();
             }
+
             return resultado;
         }
+        public DataTable Retorna(string sql)
+        {
+            Conectar();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable data = new DataTable();
+                da.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+
+
     }
 }
