@@ -31,11 +31,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCliente = new System.Windows.Forms.Button();
             this.pnlTela = new System.Windows.Forms.Panel();
+            this.btnProduto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnProduto);
             this.panel1.Controls.Add(this.btnCliente);
             this.panel1.Location = new System.Drawing.Point(0, 2);
             this.panel1.Name = "panel1";
@@ -60,6 +62,16 @@
             this.pnlTela.Size = new System.Drawing.Size(705, 518);
             this.pnlTela.TabIndex = 1;
             // 
+            // btnProduto
+            // 
+            this.btnProduto.Location = new System.Drawing.Point(12, 166);
+            this.btnProduto.Name = "btnProduto";
+            this.btnProduto.Size = new System.Drawing.Size(126, 100);
+            this.btnProduto.TabIndex = 1;
+            this.btnProduto.Text = "Produto";
+            this.btnProduto.UseVisualStyleBackColor = true;
+            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,6 +91,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Panel pnlTela;
+        private System.Windows.Forms.Button btnProduto;
     }
 }
 

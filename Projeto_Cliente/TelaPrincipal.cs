@@ -30,5 +30,18 @@ namespace Projeto_Cliente
             tela.Show();
 
         }
+
+        private void btnProduto_Click(object sender, EventArgs e)
+        {
+            tela = new TelaProduto
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+            };
+            pnlTela.Controls.Add(tela);
+            tela.Show();
+
+        }
     }
 }
